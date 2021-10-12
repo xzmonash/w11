@@ -11,7 +11,7 @@
             "x": {
                 "timeUnit": "yearmonthdate",
                 "field": "date",
-                "scale": {"domain": {"param": "brush"}, "scheme": "blues"},
+                "scale": {"domain": {"param": "brush"}},
                 "axis": {"title": ""}
             },
             "y": {"field": "cases_new", "type": "quantitative"},
@@ -44,7 +44,7 @@
         "tooltip": [
               {"field": "cases_recovered",
               "type": "quantitative",
-              "title": "New Cases"},
+              "title": "New Recoveries"},
               {"timeUnit":"yearmonthdate", "field": "date", "title": "date"}
             ]
       }
