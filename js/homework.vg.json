@@ -1,0 +1,71 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "https://raw.githubusercontent.com/xzmonash/data/master/cases_malaysia.csv"},
+    "vconcat": 
+    [{
+        "width": 480,
+        "height": 250,
+        "mark": "bar",
+        "title": "Daily New Covid-19 Cases",
+        "encoding": {
+            "x": {
+                "timeUnit": "yearmonthdate",
+                "field": "date",
+                "scale": {"domain": {"param": "brush"}, "scheme": "blues"},
+                "axis": {"title": ""}
+            },
+            "y": {"field": "cases_new", "type": "quantitative"},
+            "tooltip": [
+              {"field": "cases_new",
+              "type": "quantitative",
+              "title": "New Cases"},
+              {"timeUnit":"yearmonthdate", "field": "date", "title": "date"}
+            ]
+        }
+    },
+    {
+      "width": 480,
+      "height": 250,
+      "mark": "bar",
+      "title": "Daily Covid-19 Recoveries",
+      "encoding": {
+        "x": {
+          "timeUnit": "yearmonthdate",
+          "field": "date", 
+          "scale": {"domain": {"param": "brush"}},
+          "axis": {"title": ""}
+
+        },
+        "y": {
+          "field": "cases_recovered", 
+          "type": "quantitative"
+        },
+        "color": {"value":"green"},
+        "tooltip": [
+              {"field": "cases_recovered",
+              "type": "quantitative",
+              "title": "New Cases"},
+              {"timeUnit":"yearmonthdate", "field": "date", "title": "date"}
+            ]
+      }
+    },
+    {
+        "width": 480,
+        "height": 10,
+        "mark": "line",
+        "params": [{
+            "name": "brush",
+            "select": {"type": "interval", "encodings": ["x"]}
+        }],
+        "encoding": {
+            "x": {
+                "timeUnit": "yearmonth",
+                "field": "date",
+                "title": "Date range selector"
+            },
+            "color": {"value": "black"}
+        }
+
+    }
+    ]
+}
